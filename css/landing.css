@@ -1,0 +1,382 @@
+html, body {
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
+    url(../fonts/MaterialIcons-Regular.woff) format('woff'),
+    url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(177, 74, 74,1);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(177, 74, 74,1) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+body {
+    background-color: #000000;
+    margin: 0;
+    font-family: Helvetica, sans-serif;;
+    overflow: hidden;
+}
+
+a {
+    color: #000000;
+}
+
+/*
+.topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #5abf77;
+    z-index: 10;
+}
+*/
+
+.topmenu {
+    float: left;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.topmenu_leyenda{
+    float: left;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+/* basic positioning */
+.legend {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #5abf77;
+    border-bottom: solid 1px;
+    z-index: 10;
+    list-style: none;
+    float: left;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+.legend li { float: left; margin-right: 40px; padding-top: 10px; }
+
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px;
+    /*box-shadow: 0px 0px 12px rgba(255, 26, 26,.8);*/
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;}
+/* your colors */
+.legend .superawesome { background-color: #ff0000; }
+.legend .awesome { background-color: #21a00d; }
+.legend .kindaawesome { background-color: #eeff00; }
+.legend .notawesome { background-color: #a937b8; }
+
+
+.topmenu_back{
+    float: left;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    width: 40px;
+    box-shadow: 0px 0px 12px rgb(7, 56, 5);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    z-index: 100;
+}
+.topmenu_back a{
+    padding-left: 8px;
+    padding-bottom: 8px;
+}
+.topmenu_back:hover{
+    background-color: #0bee54;
+    color: white;
+}
+
+.topmenu a {
+    display: block;
+    color: #424242;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#bbb{
+    border-right: 1px solid #89fc7f;
+    display: none;
+    box-shadow: 0 30px 40px rgba(0,0,0,.1);
+}
+#back-btn{
+    width: 50px;
+}
+
+#leyenda{
+    height: 100px;
+    border-right: 1px solid #89fc7f;
+    display: none;
+}
+
+#menu {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+#atom_container { width: 500px; float: right; background-color: #ccf; }
+
+#container_atomic_detail {
+    background-color: white;
+}
+
+.element {
+    width: 120px;
+    height: 160px;
+    box-shadow: 0px 0px 12px rgba(255, 26, 26, 0.75);
+    border: 1px solid rgba(255, 26, 26, 0.100);
+    text-align: center;
+    cursor: default;
+
+}
+/*
+
+.element:hover {
+    box-shadow: 0px 0px 12px rgba(255, 26, 26, 0.80);
+    border: 1px solid rgba(255, 26, 26, 0.80);
+    backdrop-filter: blur(16px);
+}
+*/
+
+.element .number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.element .symbol {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.75);
+    text-shadow: 0 0 10px rgba(252, 252, 252, 0.95);
+}
+
+.element .details {
+    z-index: 2;
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.element .cerrar{
+    position: absolute;
+    top: 0px;
+    right: -40px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 12px rgba(255, 26, 26,.8);
+    border: 1px solid rgba(255, 26, 26, .8);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+.element .estructura{
+    z-index: 1;
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 12px rgba(255, 26, 26,.8);
+    border: 1px solid rgba(255, 26, 26, .8);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
+
+button {
+    color: rgba(127, 255, 255, 0.75);
+    background: transparent;
+    border: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(0, 255, 255, 0.5);
+}
+
+button:active {
+    color: #000000;
+    background-color: rgba(0, 255, 255, 0.75);
+}
+
+ #loading-screen {
+     position: absolute;
+     z-index: 2;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: #000000;
+     opacity: 1;
+     transition: 1s opacity;
+ }
+
+#loading-screen.fade-out {
+    opacity: 0;
+}
+
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

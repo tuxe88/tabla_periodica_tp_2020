@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/landing.css">
+</head>
+<body>
+
+<ul class="topnav" id="bbb">
+        <!--<li class="topmenu">hola</li>-->
+       <!--<li class="topmenu back_atomo"><span class="material-icons"  style="position:relative; font-size: 25px;">arrow_back_ios</span></li>
+        <li class="topmenu"><a><span class="material-icons"  >arrow_back_ios</span></a></li>
+        <li class="topmenu"><div style="position:relative;" class="leyeda_nivel">legend 1</div></li>-->
+    <ul class="legend">
+        <li  id="bbb_back" class="topmenu_back"> <a class="material-icons" >arrow_back_ios</a></li>
+        <li><span class="superawesome" style="margin-left: 50px"></span> Nivel <strong>S</strong></li>
+        <li><span class="awesome"></span> Nivel <strong>P</strong></li>
+        <li><span class="kindaawesome"></span> Nivel <strong>D</strong></li>
+        <li><span class="notawesome"></span> Nivel <strong>F</strong></li>
+    </ul>
+
+</ul>
+
+<!--<div id="bbb">
+    <button id="back-btn" style="z-index: 1000">
+        &lt;!&ndash;<p style="font-size: 20px" >volver a la tabla</p>&ndash;&gt;
+
+    </button>
+</div>-->
+
+
+
+<div id="container"></div>
+<div id="container_atomic_detail" style="display: none"></div>
+
+<section id="loading-screen">
+    <div id="loader"></div>
+</section>
+
+<script src="lib/jquery.js"></script>
+<script src="./lib/three.js"></script>
+<script src="./lib/Tween.min.js"></script>
+<script src="./lib/controls/TrackballControls.js"></script>
+<script src="./lib/controls/OrbitControls.js"></script>
+<script src="./lib/renderers/CSS3DRenderer.js"></script>
+
+<script src="js/table.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/camera.js"></script>
+<script src="js/objects.js"></script>
+<script src="js/renderer.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/elementsManager.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    $('#bbb_back').click(
+        function () {
+            if(actual_scene==scene_table){
+                loadDetailScene(1);
+            }else {
+                loadTableScene();
+            }
+        }
+    );
+</script>
+
+</body>
+</html>
